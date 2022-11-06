@@ -45,3 +45,31 @@
  2110  docker run busybox dates
  2111  docker ps -a
 ```
+
+# Demo 2
+```
+1380  docker pull busybox
+ 1381  docker pull ubuntu:16.04
+ 1382  docker pull ubuntu:20.04
+ 1383  docker images
+ 1384  docker run ubuntu cat /etc/os-release
+ 1385  docker run ubuntu:16.04 cat /etc/os-release
+ 1386  docker run ubuntu:20.04 cat /etc/os-release
+ 1387  docker ps
+ 1388  docker images
+ 1389  docker search --help
+ 1390  docker search ubuntu
+ 1391  curl -s -S "https://registry.hub.docker.com/v2/repositories/library/ubuntu/tags/"
+ 1392  docker images
+ 1393  docker run ubuntu:20.04 cat /etc/os-release
+ 1394  docker ps
+ 1395  docker container ls
+ 1396  docker container ls -a
+ 1397  docker ps
+ 1398  docker ps -a
+ 1399  docker run ubuntu:focal cat /etc/os-release
+ 1400  docker images
+ 1401  docker run ubuntu:focal cat /etc/os-release
+ 1402  docker run ubuntu:latest cat /etc/os-release
+
+```
