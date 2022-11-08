@@ -60,7 +60,7 @@ root@master:~# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 root@master:~# sudo chown $(id -u):$(id -g) $HOME/.kube/config
 root@master:~# kubectl get nodes 
 NAME         STATUS   ROLES    AGE    VERSION
-master   Ready    master   5m6s   v1.21.0
+master       Ready    master   5m6s   v1.21.0
 ```
 
 
@@ -70,7 +70,7 @@ master   Ready    master   5m6s   v1.21.0
 vagrant.exe ssh woker1
 sudo su - 
 git clone https://github.com/amitvashisttech/docker-k8s-ericsson-06-Nov-2022.git
-cd docker-k8s-ericsson-06-Nov-2022/00-Setup
+cd docker-k8s-ericsson-06-Nov-2022/02-K8s/00-Setup
 sh install-worker-node.sh
 ```
 
