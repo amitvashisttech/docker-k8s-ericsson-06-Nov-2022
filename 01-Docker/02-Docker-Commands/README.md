@@ -293,3 +293,98 @@
  2228  docker ps
  2229  systemctl status docker
 ```
+
+# Demo 7
+
+```
+2239  docker ps
+ 2240  docker kill $(docker ps -q)
+ 2241  docker rm $(docker ps -qa)
+ 2242  docker images
+ 2243  docker run -d --name nw-test-1-default amitvashist7/network-multitool
+ 2244  docker ps
+ 2245  docker exec -it nw-test-1-default ip addr
+ 2246  docker network ls
+ 2247  docker network ls 07c49b12e657
+ 2248  docker network inspect 07c49b12e657
+ 2249  docker network create --help
+ 2250  docker network create --driver bridge --subnet 172.28.0.0/16 --ip-range 172.28.5.0/24 --gateway 172.28.5.254 mybr0
+ 2251  docker network ls
+ 2252  docker network inspect mybr0
+ 2253  docker exec -it nw-test-2-default ip addr
+ 2254  docker run -d --name nw-test-2-default amitvashist7/network-multitool
+ 2255  docker exec -it nw-test-2-default ip addr
+ 2256  docker exec -it nw-test-1-default ip addr
+ 2257  docker run -d --name nw-test-1-mybr0 --network mybr0 amitvashist7/network-multitool
+ 2258  docker ps
+ 2259  docker exec -it nw-test-1-mybr0 ip addr
+ 2260  docker run -d --name nw-test-2-mybr0 --network mybr0 amitvashist7/network-multitool
+ 2261  docker exec -it nw-test-2-mybr0 ip addr
+ 2262  docker exec -it nw-test-2-mybr0 ping -c2 google.com
+ 2263  docker image
+ 2264  docker images
+ 2265  docker run -d --name nw-test-3-mybr0 --network mybr0 -P testapache:v6
+ 2266  docker ps
+ 2267  docker exec -it nw-test-3-mybr0 ping -c2 google.com
+ 2268  docker exec -it nw-test-2-mybr0 ping -c2 google.com
+ 2269  docker exec -it nw-test-2-mybr0 route -n
+ 2270  docker network ls
+ 2271  docker network inspect mybr0
+ 2272  ip addr
+ 2273  systemctl status docker
+ 2274  ip addr
+ 2275  route -n
+ 2276  ls
+ 2277  netstat -tulnp
+ 2278  netstat -tulnp| grep -i 80
+ 2279  docker images
+ 2280  docker run -d --name test-1 testapache:v1
+ 2281  docker ps
+ 2282  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 2283  curl 172.17.0.4
+ 2284  netstat -tulnp| grep -i 80
+ 2285  docker run -d --name test-2 -p 80:80  testapache:v1
+ 2286  netstat -tulnp| grep -i 80
+ 2287  docker ps
+ 2288  ip addr
+ 2289  systemctl  status docker
+ 2290  docker ps
+ 2291  netstat -tulnp
+ 2292  ls
+ 2293  docker ps
+ 2294  docker kill $(docker ps -q)
+ 2295  docker ps
+ 2296  docker ps -a
+ 2297  docker start nw-test-1-default
+ 2298  docker start nw-test-1-mybr0
+ 2299  docker ps
+ 2300  docker exec -it nw-test-1-mybr0  ip addr
+ 2301  docker exec -it nw-test-1-default  ip addr
+ 2302  docker network  ls
+ 2303  docker run -d --name nw-test-3-host --network host amitvashist7/network-multitool
+ 2304  docker exec -it nw-test-1-mybr0  ip addr
+ 2305  docker exec -it nw-test-1-default  ip addr
+ 2306  docker exec -it nw-test-3-host  ip addr
+ 2307  docker network ls
+ 2308  docker run -d --name nw-test-3-none --network none amitvashist7/network-multitool
+ 2309  docker exec -it nw-test-1-default  ip addr
+ 2310  docker exec -it nw-test-3-host  ip addr
+ 2311  docker exec -it nw-test-1-none  ip addr
+ 2312  docker ps
+ 2313  docker exec -it nw-test-3-none  ip addr
+ 2314  docker attach nw-test-3-none
+ 2315  docker exec -it nw-test-3-none  bash
+ 2316  docker exec -it nw-test-3-none  sh
+ 2317  docker exec -it nw-test-3-none  /bin/bash
+ 2318  docker ps
+ 2319  docker start nw-test-3-none
+ 2320  docker exec -it nw-test-3-none  sh
+ 2321  docker run -d --name nw-test-3 -P  amitvashist7/network-multitool
+ 2322  docker ps
+ 2323  ls
+ 2324  history
+ 2325  docker ps
+ 2326  docker exec -it nw-test-1-default ip addr
+ 2327  curl 172.17.0.2
+ 2328  docker exec -it nw-test-3-none ip addr
+```
