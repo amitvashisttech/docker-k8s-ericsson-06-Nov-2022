@@ -248,3 +248,48 @@
  2160  docker ps
 
 ```
+
+
+# Demo 6
+
+```
+ 2191  docker network ls
+ 2192  docker network inspect 07c49b12e657
+ 2193  docker kill  $(docker ps -q)
+ 2194  docker network inspect 07c49b12e657
+ 2195  docker run -d --name mytest-apache-9 testapache:v6
+ 2196  docker ps
+ 2197  docker network inspect 07c49b12e657
+ 2198  docker run -d --name mytest-apache-10 testapache:v6
+ 2199  docker network inspect 07c49b12e657
+ 2200  ip addr
+ 2201  curl 172.17.0.2
+ 2202  curl 172.17.0.2:8080
+ 2203  route -n
+ 2204  docker images
+ 2205  docker run -d --test-nw-1 amitvashist7/network-multitool
+ 2206  docker run -d --name test-nw-1 amitvashist7/network-multitool
+ 2207  docker run -d --name test-nw-2 amitvashist7/network-multitool
+ 2208  docker ps
+ 2209  docker exec -it test-nw-2 ip addr
+ 2210  ip addr
+ 2211  docker exec -it test-nw-2 route -n
+ 2212  docker exec -it test-nw-2 ip addr
+ 2213  route -n
+ 2214  ip addr
+ 2215  netstat -tulnp
+ 2216  docker run -d --name mytest-apache-12 -p 8080:8080  testapache:v6
+ 2217  docker ps
+ 2218  netstat -tulnp
+ 2219  docker run -d --name mytest-apache-13 -p 8080:8080  testapache:v6
+ 2220  docker run -d --name mytest-apache-14 -p 8081:8080  testapache:v6
+ 2221  docker ps
+ 2222  netstat -tulnp
+ 2223  docker run -d --name mytest-apache-15 -P   testapache:v6
+ 2224  docker ps
+ 2225  netstat -tulnp
+ 2226  systemctl status docker
+ 2227  docker run -d --name mytest-apache-17 -P   testapache:v5
+ 2228  docker ps
+ 2229  systemctl status docker
+```
