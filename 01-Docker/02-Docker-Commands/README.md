@@ -123,3 +123,23 @@
  2253  docker inspect --format '{{.Name}} {{.State.Status}} {{.NetworkSettings.IPAddress}}' $(docker ps -aq)
 
 ```
+
+# Demo 4 
+
+```
+ 2004  cd 03-Dockerfile/apache/v1 
+ 2012  vim Dockerfile
+ 2013  ls
+ 2014  docker build -t testapache:v1 .
+ 2015  docker images
+ 2027  docker build -t testapache:v1 .
+ 2028  docker images
+ 2029  docker ps
+ 2030  docker run -d --name mytest-apache-1 testapache:v1
+ 2031  docker ps
+ 2032  docker run -d --name mytest-apache-2 testapache:v1
+ 2033  docker run -d --name mytest-apache-3 testapache:v1
+ 2034  docker ps
+ 2035  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 2036  curl 172.17.0.2
+```
