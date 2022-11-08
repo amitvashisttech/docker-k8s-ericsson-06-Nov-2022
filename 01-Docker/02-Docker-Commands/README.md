@@ -143,3 +143,108 @@
  2035  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
  2036  curl 172.17.0.2
 ```
+
+
+# Demo 5 
+
+```
+2063  docker images
+ 2064  ls
+ 2065  cp -rf v1 v2
+ 2066  ls
+ 2067  cd v2/
+ 2068  ls
+ 2069  vim index.html
+ 2070  ls
+ 2071  vim Dockerfile
+ 2072  ls
+ 2073  docker build -t testapache:v2 .
+ 2074  docker images
+ 2075  docker run -d --name mytest-apache-4 testapache:v2
+ 2076  docker ps
+ 2077  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 2078  curl 172.17.0.4
+ 2079  curl 172.17.0.5
+ 2080  curl -vvv 172.17.0.5
+ 2081  ls
+ 2082  cd ..
+ 2083  ls
+ 2084  cp -rf v2 v3
+ 2085  ls
+ 2086  cd v3/
+ 2087  ls
+ 2088  vim index.html
+ 2089  ls
+ 2090  vim ports.conf
+ 2091  ls
+ 2092  vim Dockerfile
+ 2093  ls
+ 2094  docker build -t testapache:v3 .
+ 2095  docker images
+ 2096  docker run -d --name mytest-apache-5 testapache:v3
+ 2097  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 2098  curl 172.17.0.5
+ 2099  curl -v 172.17.0.5
+ 2100  curl -v 172.17.0.6
+ 2101  docker ps
+ 2102  curl -v 172.17.0.6:9090
+ 2103  docker ps
+ 2104  ls
+ 2105  cd ..
+ 2106  ls
+ 2107  cp -rf v3 v4
+ 2108  ls
+ 2109  cd v4/
+ 2110  ls
+ 2111  vim ports.conf
+ 2112  ls
+ 2113  vim index.html
+ 2114  ls
+ 2115  vim Dockerfile
+ 2116  ks
+ 2117  ls
+ 2118  docker build -t testapache:v4 .
+ 2119  docker run -d --name mytest-apache-6 testapache:v4
+ 2120  docker ps
+ 2121  curl -v 172.17.0.5
+ 2122  curl -v 172.17.0.6
+ 2123  curl -v 172.17.0.7
+ 2124  curl -v 172.17.0.7:8080
+ 2125  docker ps
+ 2126  ls
+ 2127  cd ..
+ 2128  ls
+ 2129  cp -rf v4 v5
+ 2130  ls
+ 2131  cd v5/
+ 2132  ls
+ 2133  vim Dockerfile
+ 2134  ls
+ 2135  docker build -t testapache:v5 .
+ 2136  docker run -d --name mytest-apache-7 testapache:v5
+ 2137  docker ps
+ 2138  curl -v 172.17.0.8
+ 2139  curl -v 172.17.0.8:9090
+ 2140  curl -v 172.17.0.8:8080
+ 2141  curl 172.17.0.8:8080
+ 2142  curl 172.17.0.8:8080/info.html
+ 2143  date
+ 2144  ls
+ 2145  cd ..
+ 2146  ls
+ 2147  cp -rf v5 v6
+ 2148  ls
+ 2149  cd v6/
+ 2150  ls
+ 2151  vim Dockerfile
+ 2152  ls
+ 2153  mv Dockerfile amit-file
+ 2154  ls
+ 2155  docker build -t testapache:v6 .
+ 2156  cat amit-file
+ 2157  docker build -t testapache:v6 -f amit-file .
+ 2158  docker images
+ 2159  docker run -d --name mytest-apache-8 testapache:v6
+ 2160  docker ps
+
+```
