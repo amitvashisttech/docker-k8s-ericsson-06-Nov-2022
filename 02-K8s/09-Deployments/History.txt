@@ -1,0 +1,62 @@
+```
+ 2115  cd 09-Deployments/
+ 2116  ls
+ 2117  cat 01-helloworld.yaml
+ 2118  kubectl  apply -f 01-helloworld.yaml
+ 2119  kubectl get pods
+ 2120  kubectl apply -f ../04-Replication-Cantroller/01-Helloworld-rc.yaml
+ 2121  kubectl get pods
+ 2122  ls
+ 2123  kubectl get deploy
+ 2124  kubectl get rs
+ 2125  kubectl get pods
+ 2126  kubectl  expose deploy helloworld-deployment --type=NodePort
+ 2127  kubectl  get svc
+ 2128  kubectl  describe deploy helloworld-deployment
+ 2129  kubectl  get pods
+ 2130  kubectl  delete pods helloworld-deployment-58857f8b94-52ftq helloworld-deployment-58857f8b94-9n9lz
+ 2131  kubectl  scale --replicas=5 deploy helloworld-deployment
+ 2132  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
+ 2133  kubectl  describe deploy helloworld-deployment
+ 2134  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
+ 2135  kubectl  describe deploy helloworld-deployment
+ 2136  kubectl  rollout status deloy helloworld-deployment
+ 2137  kubectl  rollout status deploy helloworld-deployment
+ 2138  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4
+ 2139  kubectl  rollout status deploy helloworld-deployment
+ 2140  kubectl  describe deploy helloworld-deployment
+ 2141  ls
+ 2142  cd ..
+ 2143  ls
+ 2144  cd 04-Replication-Cantroller/
+ 2145  ls
+ 2146  kubectl  apply -f 01-Helloworld-rc.yaml
+ 2147  cat 01-Helloworld-rc.yaml
+ 2148  vim  01-Helloworld-rc.yaml
+ 2149  kubectl  create -f 01-Helloworld-rc.yaml
+ 2150  kubectl  delete -f 01-Helloworld-rc.yaml
+ 2151  kubectl apply  -f 01-Helloworld-rc.yaml
+ 2152  ls
+ 2153  cd ..
+ 2154  kubectl  get deploy
+ 2155  kubectl  rollout status deploy helloworld-deployment
+ 2156  kubectl  rollout history deploy helloworld-deployment
+ 2157  kubectl  rollout history deploy helloworld-deployment --revision=1
+ 2158  kubectl  rollout history deploy helloworld-deployment --revision=2
+ 2159  kubectl  rollout history deploy helloworld-deployment --revision=4
+ 2160  kubectl  rollout history deploy helloworld-deployment
+ 2161  kubectl  rollout undo deploy helloworld-deployment
+ 2162  kubectl  rollout history deploy helloworld-deployment
+ 2163  kubectl  rollout undo deploy helloworld-deployment
+ 2164  kubectl  rollout history deploy helloworld-deployment
+ 2165  kubectl  rollout undo deploy helloworld-deployment --to-revision=1
+ 2166  kubectl  rollout history deploy helloworld-deployment
+ 2167  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web --record
+ 2168  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record
+ 2169  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3 --record
+ 2170  kubectl  rollout history deploy helloworld-deployment
+ 2171  ls
+ 2172  kubectl  delete -f 09-Deployments/
+ 2173  ls
+ 2174  git add . ; git commit -m "09-Deployments" ; git push
+```

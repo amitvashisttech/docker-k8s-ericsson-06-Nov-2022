@@ -1,0 +1,43 @@
+```
+2231  cd 10-HealthCheck/
+ 2232  ls
+ 2233  cat 01-helloworld-deploy-hc.yaml
+ 2234  kubectl  apply -f 01-helloworld-deploy-hc.yaml
+ 2235  kubectl  get pods
+ 2236  kubectl describe pod helloworld-deployment-7d64fd56d6-8hzpj
+ 2237  kubectl  get deploy
+ 2238  kubectl edit deploy
+ 2239  kubectl  get deploy
+ 2240  kubectl  get pods
+ 2241  kubectl describe pod helloworld-deployment-5bc5d8b4f9-dhpj5
+ 2242  ls
+ 2243  kubectl describe pod helloworld-deployment-5bc5d8b4f9-dhpj5
+ 2244  ls
+ 2245  vim 02-helloworld-deploy-custom-values.yaml
+ 2246  kubectl  apply -f 02-helloworld-deploy-custom-values.yaml
+ 2247  kubectl describe pod helloworld-2-deployment-8b79ddc9b-4hkh4
+ 2248  kubectl  edit deploy helloworld-deployment
+ 2249  ls
+ 2250  kubectl  delete -f 01-helloworld-deploy-hc.yaml
+ 2251  kubectl  delete -f 02-helloworld-deploy-custom-values.yaml
+ 2252  ls
+ 2253  cat 02-helloworld-deploy-custom-values.yaml
+ 2254  ls
+ 2255  vim 03-pod-prob-exec.yaml
+ 2256  kubectl  apply -f 03-pod-prob-exec.yaml
+ 2257  kubectl  get pods
+ 2258  kubectl  delete pod hello-k8s
+ 2259  kubectl  get pods
+ 2260  kubectl describe pods liveness-exec
+ 2261  kubectl  get pods
+ 2262  kubectl exec -it  liveness-exec -- ls /tmp
+ 2263  s
+ 2264  ls
+ 2265  vim 04-helloworld-deploy-readiness-healthcheck.yaml
+ 2266  kubectl  apply -f 04-helloworld-deploy-readiness-healthcheck.yaml
+ 2267  kubectl exec -it  liveness-exec -- ls /tmp
+ 2268  kubectl  delete -f 03-pod-prob-exec.yaml
+ 2269  kubectl  apply -f 03-pod-prob-exec.yaml
+ 2270  kubectl exec -it  liveness-exec -- ls /tmp
+ 2271  kubectl exec -it  liveness-exec -- cat /tmp/healthy
+```
