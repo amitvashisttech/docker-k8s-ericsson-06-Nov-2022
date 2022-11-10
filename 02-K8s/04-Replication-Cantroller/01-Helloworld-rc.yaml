@@ -15,7 +15,7 @@ spec:
       - name: regcred
       containers:
       - name: docker-get-started
-        image: amitvashist7/k8s-tiny-web:2
+        image: amitvashist7/k8s-tiny-web
         ports:
         - name: http-port
           containerPort: 80
