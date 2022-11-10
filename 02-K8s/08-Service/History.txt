@@ -1,0 +1,36 @@
+```
+2053  cd 08-Service/
+ 2054  ls
+ 2055  cat 01-helloworld.yaml
+ 2056  ls
+ 2057  cat 02-helloworld-svc.yaml
+ 2058  ls
+ 2059  cat 03-app-svc-deployment.yaml
+ 2060  ls
+ 2061  cat 01-helloworld.yaml
+ 2062  kubectl  apply -f 01-helloworld.yaml
+ 2063  kubectl  get pods
+ 2064  kubectl  get pods -o wide
+ 2065  ls
+ 2066  kubectl  expose rc helloworld-controller
+ 2067  kubectl  get svc
+ 2068  kubectl  edit svc  helloworld-controller
+ 2069  kubectl  get svc
+ 2070  ls
+ 2071  cat 02-helloworld-svc.yaml
+ 2072  kubectl  get svc
+ 2073  kubectl  delete svc helloworld-controller
+ 2074  kubectl  apply -f 02-helloworld-svc.yaml
+ 2075  kubectl  get svc
+ 2076  kubectl  describe svc helloworld-service
+ 2077  kubectl  get pods --show-labels
+ 2078  kubectl  get pods -o wide
+ 2079  cat 01-helloworld.yaml
+ 2080  ls
+ 2081  vim 03-app-svc-deployment.yaml
+ 2082  kubectl  apply -f 03-app-svc-deployment.yaml
+ 2083  kubectl  get svc
+ 2084  kubectl describe svc python-webapp-svc
+ 2085  kubectl get pods -o wide
+
+```
