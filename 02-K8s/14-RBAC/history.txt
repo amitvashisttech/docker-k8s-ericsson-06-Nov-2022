@@ -1,0 +1,72 @@
+```
+2093  cd 14-RBAC/
+ 2094  ls
+ 2095  kubectl create role pod-reader --help
+ 2096  kubectl create role pod-reader --verb=get,list,watch --resource=pods --dry-run -o yaml > pod-reader-role.yaml
+ 2097  ls
+ 2098  cat pod-reader-role.yaml
+ 2099  kubectl  get roles
+ 2100  kubectl config get-context
+ 2101  kubectl config get-contexts
+ 2102  kubectl config use-context kubernetes-admin@kubernetes
+ 2103  kubectl  get roles
+ 2104  cat pod-reader-role.yaml
+ 2105  kubectl  apply -f pod-reader-role.yaml
+ 2106  kubectl  get roles
+ 2107  kubectl create rolebinding --role=pod-reader --user=amit --dry-run -o yaml > read-pod-binding.yaml
+ 2108  kubectl create rolebinding read-pod-binding-amit --role=pod-reader --user=amit --dry-run -o yaml > read-pod-binding.yaml
+ 2109  ls
+ 2110  cat pod-reader-role.yaml
+ 2111  cat read-pod-binding.yaml
+ 2112  kubectl  apply -f read-pod-binding.yaml
+ 2113  kubectl  get roles
+ 2114  kubectl  get roles,rolebindings
+ 2115  kubectl config use-context amit@kubernetes
+ 2116  kubectl config get-contexts
+ 2117  kubectl  get pods
+ 2118  kubectl  get deploy
+ 2119  kubectl  get pods
+ 2120  kubectl  delete pods hello-nginx
+ 2121  kubectl  get pods
+ 2122  kubectl  get pods -n kube-system
+ 2123  kubectl api-resources
+ 2124  kubectl config use-context kubernetes-admin@kubernetes
+ 2125  ls
+ 2126  kubectl  get pods
+ 2127  kubectl get ns
+ 2128  kubectl apply -f ../04-Replication-Cantroller/01-Helloworld-rc.yaml -n myspace-project-x
+ 2129  ls
+ 2130  kubectl  apply -f pod-reader-role.yaml -n myspace-project-x
+ 2131  kubectl create rolebinding read-pod-binding-vashist --role=pod-reader --user=vashist --dry-run -o yaml > read-pod-binding-vashist.yaml
+ 2132  kubectl apply -f read-pod-binding-vashist.yaml -n myspace-project-x
+ 2133  kubectl config use-context  vashist@project-x
+ 2134  kubectl get pods
+ 2135  kubectl auth can-i get pods --user=vashist
+ 2136  kubectl auth can-i get pods --user=amit
+ 2137  kubectl auth can-i get pods --user=vashist
+ 2138  kubectl auth can-i delete pods --user=vashist
+ 2139  kubectl auth can-i get pods --user=vashist -n kube-system
+ 2140  kubectl config use-context kubernetes-admin@kubernetes
+ 2141  ls
+ 2142  kubectl  get clusterroles
+ 2143  kubectl create clusterrolebinding amit-clusteradmin-binding --clusterrole=cluster-admin --user=amit --dry-run -o yaml > amit-clusteradmin-binding.yaml
+ 2144  cat amit-clusteradmin-binding.yaml
+ 2145  kubectl auth can-i get pods --user=amit -n kube-system
+ 2146  kubectl auth can-i delete pods --user=amit -n kube-system
+ 2147  kubectl auth can-i delete pods --user=amit
+ 2148  kubectl  apply -f amit-clusteradmin-binding.yaml
+ 2149  kubectl auth can-i delete pods --user=amit
+ 2150  kubectl auth can-i delete pods --user=amit -n kube-system
+ 2151*
+ 2152  kubectl config get-contexts
+ 2153  kubectl config use-context amit@kubernetes
+ 2154  kubectl  get pod -A
+ 2155  kubectl  delete ns myspace-project-x
+ 2156  kubectl  get pod -A
+ 2157  ls
+ 2158  cat pod-reader-role.yaml
+ 2159  history
+ 2160  kubectl  create role --help
+ 2161  kubectl create role foo --verb=get,list,watch --resource=deploy,rc,namespace --dry-run -o yaml
+ 2162  kubectl create role foo --verb=get,list,watch --resource=deploy,rc,namespace,roles --dry-run -o yaml
+```
