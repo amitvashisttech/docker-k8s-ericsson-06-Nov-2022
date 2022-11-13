@@ -1,0 +1,56 @@
+```
+2004  cd 13-User-Management/
+ 2005  ls
+ 2006  apt install openssl -y
+ 2007  cd
+ 2008  openssl genrsa -out amit.pem 2048
+ 2009  ls
+ 2010  cat amit.pem
+ 2011  ls
+ 2012  openssl  req -new -key amit.pem -out amit-csr.pem -subj "/CN=amit/O=training"
+ 2013  ls
+ 2014  cat amit-csr.pem
+ 2015  ls -lr /etc/kubernetes/pki/ca.crt
+ 2016  openssl x509 -req -in amit-csr.pem -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out amit.crt -days 100
+ 2017  ls
+ 2018  cat amit.pem
+ 2019  cat amit.crt
+ 2020  openssl x509 -in amit.crt -text -noout
+ 2021  ls
+ 2022  rm -rf amit-csr.pem
+ 2023  ls
+ 2024  kubectl  config view
+ 2025  openssl genrsa -out vashist.pem 2048
+ 2026  openssl  req -new -key vashist.pem -out vashist-csr.pem -subj "/CN=vashist/O=training"
+ 2027  openssl x509 -req -in vashist-csr.pem -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out vashist.crt -days 1000
+ 2028  ls
+ 2029  rm -rf vashist-csr.pem
+ 2030  openssl x509 -in amit.crt -text -noout
+ 2031  openssl x509 -in vashist.crt -text -noout
+ 2032  ls
+ 2033  kubectl config set-credentials amit --client-certificate=/root/amit.crt --client-key=/root/amit.pem
+ 2034  kubectl  config view
+ 2035  kubectl config set-credentials vashist --client-certificate=/root/vashist.crt --client-key=/root/vashist.pem --embed-certs=true
+ 2036  kubectl  config view
+ 2037  kubectl  config get-contexts
+ 2038  kubectl  config set-context amit@kubernetes --cluster=kubernetes --user=amit
+ 2039  kubectl  config get-contexts
+ 2040  kubectl  config view
+ 2041  kubectl  config get-contexts
+ 2042  kubectl  get ns
+ 2043  kubectl  delete ns test2
+ 2044  kubectl  create ns myspace-project-x
+ 2045  kubectl  get ns
+ 2046  kubectl  config set-context vashist@project-x --cluster=kubernetes --user=vashist --namespace=myspace-project-x
+ 2047  kubectl  config get-contexts
+ 2048  kubectl config use-context amit@kubernetes
+ 2049  kubectl  config get-contexts
+ 2050  kubectl  get pods
+ 2051  kubectl config use-context  vashist@project-x
+ 2052  kubectl  get pods
+ 2053  ls
+ 2054  kubectl  config get-contexts
+ 2055  kubectl  config use-context kubernetes-admin@kubernetes
+ 2056  kubectl  config get-contexts
+ 2057  kubectl  get pods
+```
